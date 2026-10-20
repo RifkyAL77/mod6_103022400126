@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import './App.css'
+import Panel from './components/Panel'
+import KartuMenu from './components/KartuMenu'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,7 +17,14 @@ function App() {
       <p>{(jam) < 12 ? "Selamat Pagi" : "Selamat Siang"}</p>
       <p>Saldo awal kartu kantin: Rp {N * 1000}</p>
       <button disabled> Bayar </button>
+    
+      <Panel judul = "Menu Hari ini">
+        <KartuMenu nama="Nasi Ayam Geprek" harga={1000 + (N * 100)} />
+        <KartuMenu nama="Nasi Ayam" harga={1000 + (N * 100)} />
+        <KartuMenu nama="pop ecs" harga={1000 + (N * 100)} kategori="minuman"/>
+      </Panel>
     </>
+    
   )
 }
 
